@@ -1,0 +1,35 @@
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+.theme {
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+select {
+  background-color: #{global.opacity(var(--card-color, var(--foreground)), 20)};
+  color: var(--foreground);
+  padding: 1em;
+  border-radius: var(--border-radius);
+  border: 1px solid;
+  border-color: #{global.opacity(var(--card-color, var(--foreground)), 50)};
+  color: var(--foreground);
+  &:focus{
+    outline: none;
+    box-shadow: 0 0 0 3px #{global.opacity(var(--background), 25)};
+  }
+}
+
+hr{
+  border: 0;
+  border-top: 1px solid #{global.opacity(var(--card-color, var(--foreground)), 25)};
+  margin: 1em 0;
+}
+
+
+*{margin: 0; }

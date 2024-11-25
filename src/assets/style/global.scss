@@ -1,0 +1,16 @@
+
+@function shade($color, $shade) {
+  $mix: var(--foreground);
+  $percentage: calc((($shade - 500) / 5) * 1%  );
+
+  @if ($shade <= 500) {
+    $mix: var(--background);
+    $percentage: calc(100% - (($shade / 5) * 1%));
+  }
+  @return color-mix(in srgb, $color, $mix $percentage);
+}
+
+@function opacity($color, $shade) {
+  $percentage: $shade * 1%;
+  @return color-mix(in srgb, $color $percentage, transparent);
+}
