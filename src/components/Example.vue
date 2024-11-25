@@ -18,7 +18,7 @@
           <option value="primary">Primary</option>
           <option value="secondary">Secondary</option>
           <option value="accent">Accent</option>
-          <option v-for="(value, key) in colors">{{ key }}</option>
+          <option v-for="(_, key) in colors">{{ key }}</option>
         </select>
       </div>
     </div>
@@ -27,17 +27,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from "vue";
+import { ref } from "vue";
 import { useBemm } from "../utils/bemm";
 import { useColor } from "../composables/useColor";
 import { useSettings } from "../composables/useSettings";
 const { colors } = useColor();
-const { showColorSelect } = useColor();
+const { showColorSelect } = useSettings();
 const bemm = useBemm('example');
-
-const state = reactive({
-  showSelect: false
-})
 
 const cards = ref([
   {

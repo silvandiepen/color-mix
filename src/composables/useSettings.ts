@@ -5,6 +5,7 @@ const state = reactive({
   showColorInput: false,
   showTheme: false,
   showShades: false,
+  showColorSelect: false
 })
 
 
@@ -32,6 +33,12 @@ export const useSettings = () => {
       get: () => state.showShades,
       set: (show: boolean) => {
         state.showShades = show;
+      }
+    }),
+    showColorSelect: ({
+      get: () => state.showColorSelect,
+      set: (show: boolean) => {
+        state.showColorSelect = show;
       }
     })
   }

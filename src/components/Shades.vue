@@ -2,11 +2,11 @@
   <div :class="bemm()">
     <div v-for="(value, key) in colors" :class="bemm('color')" :style="`--color: var(--${key}, ${value})`">
       <h4>{{ key }}</h4>
-      <div v-if="!showShades" :class="bemm('shade', n * 500)" :data-shade="5" :style="`--shade: ${5}`"></div>
+      <div v-if="!showShades" :class="bemm('shade', `500`)" :data-shade="5" :style="`--shade: ${5}`"></div>
       <div
         v-if="showShades"
         v-for="n in 9"
-        :class="bemm('shade', n * 100)"
+        :class="bemm('shade',`${n * 100}`)"
         :data-shade="n"
         :style="`--shade: ${n}`"
         @mouseenter="hoveredShade = n"
@@ -14,7 +14,7 @@
       >
         <span :style="{ opacity: hoveredShade === n ? 1 : 0 }">{{ n* 100 }}</span>
       </div>
-      <input v-if="showColorInput" type="color" :value="value" @change="(e) => {
+      <input v-if="showColorInput" type="color" :value="value" @change="(e:any) => {
         console.log(e.target.value)
         changeColor(key, e.target.value)
       }" />
@@ -31,7 +31,7 @@ import { ref } from 'vue';
 const bemm = useBemm('shades');
 const { changeColor, colors } = useColor();
 const { showColorInput, showShades } = useSettings();
-const hoveredShade = ref(null);
+const hoveredShade = ref<number | null>();
 </script>
 
 <style lang="scss">

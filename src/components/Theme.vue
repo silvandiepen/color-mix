@@ -6,40 +6,40 @@
       <li :style="`--item-color: var(--primary)`">
         <label>Primary</label>
         <select v-model="theme.primary">
-          <option v-for="(value, key) in colors">{{ key }}</option>
+          <option v-for="(_, key) in colors">{{ key }}</option>
         </select>
       </li>
       <li :style="`--item-color: var(--secondary)`">
         <label>Secondary</label> <select v-model="theme.secondary">
-          <option v-for="(value, key) in colors">{{ key }}</option>
+          <option v-for="(_, key) in colors">{{ key }}</option>
         </select>
       </li>
       <li :style="`--item-color: var(--accent)`">
 
         <label>Accent</label> <select v-model="theme.accent">
-          <option v-for="(value, key) in colors">{{ key }}</option>
+          <option v-for="(_, key) in colors">{{ key }}</option>
         </select>
       </li>
       <hr>
       <li :style="`--item-color: var(--dark); --item-text: var(--light)`">
         <label>Dark</label> <select v-model="theme.dark">
-          <option v-for="(value, key) in colors">{{ key }}</option>
+          <option v-for="(_, key) in colors">{{ key }}</option>
         </select>
       </li>
       <li :style="`--item-color: var(--light); --item-text: var(--dark)`">
         <label>Light</label> <select v-model="theme.light">
-          <option v-for="(value, key) in colors">{{ key }}</option>
+          <option v-for="(_, key) in colors">{{ key }}</option>
         </select>
       </li>
       <hr>
       <li :style="`--item-color: var(--background); --item-text: var(--foreground)`">
-        <label>ColorMode</label> <select :value="colorMode" @change="(e) => setColorMode(e.target.value)">
+        <label>ColorMode</label> <select :value="colorMode" @change="(e: any) => setColorMode(e.target?.value)">
           <option value="dark">Dark mode</option>
           <option value="light">Light mode</option>
         </select>
       </li>
       <li>
-        <label>ContrastMode</label> <select :value="contrastMode" @change="(e) => setContrastMode(e.target.value)">
+        <label>ContrastMode</label> <select :value="contrastMode" @change="(e: any) => setContrastMode(e.target?.value)">
           <option value="normal">Normal</option>
           <option value="high">High</option>
         </select>
@@ -51,9 +51,7 @@
 
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
 import { useBemm } from '../utils/bemm'
-import { colors } from '../data/colors'
 
 const bemm = useBemm('theme');
 
@@ -62,6 +60,8 @@ const { colors, theme, colorMode, contrastMode, setColorMode, setContrastMode } 
 
 import { useSettings } from '../composables/useSettings'
 const { showTheme } = useSettings()
+
+
 
 </script>
 

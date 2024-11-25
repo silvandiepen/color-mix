@@ -30,7 +30,7 @@ const bemm = useBemm('settings')
 
 import { useSettings } from '../composables/useSettings'
 
-const { showTheme, showColorInput, showColorSelect,showShades} = useSettings()
+const { showTheme, showColorInput, showColorSelect, showShades} = useSettings()
 </script>
 
 <style lang="scss">
